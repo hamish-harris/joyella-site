@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Joyella Studios</title>
-<meta name="description" content="Joyella Studios. A design studio in London.">
+<title>Joyella Studios — App design and development, London</title>
+<meta name="description" content="Joyella Studios is a design studio in London. We design and build apps for iOS and Android, from first sketch to release.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@300;400;500&family=EB+Garamond:wght@400;500&display=swap" rel="stylesheet">
@@ -15,15 +15,13 @@
     --ink-soft:#6E7067;
     --hairline:#C7C4BA;
     --lichen:#5F6653;
-    --axis: 34%;
     --gutter: clamp(22px, 5vw, 76px);
-    --step: clamp(110px, 21vh, 250px);
+    --step: clamp(88px, 16vh, 180px);
     --sans: "Neue Haas Grotesk Display Pro","NHaasGroteskDSPro","Founders Grotesk","GT America","Helvetica Now Display","Archivo","Helvetica Neue",Helvetica,Arial,sans-serif;
     --serif: "EB Garamond","Adobe Garamond Pro","Sabon",Georgia,"Times New Roman",serif;
   }
 
   *,*::before,*::after{box-sizing:border-box;}
-
   html{-webkit-text-size-adjust:100%;}
 
   body{
@@ -39,7 +37,7 @@
     overflow-x:hidden;
   }
 
-  /* --- atmosphere: slow light across a plaster wall, and paper grain --- */
+  /* --- atmosphere --- */
   .light{
     position:fixed;
     top:-40vh; left:-30vw;
@@ -74,7 +72,7 @@
     padding-right:var(--gutter);
   }
 
-  /* --- masthead + statement --- */
+  /* --- hero --- */
   .hero{
     min-height:100svh;
     display:flex;
@@ -112,30 +110,65 @@
     font-size:13.5px;
     line-height:1.5;
     color:var(--ink-soft);
-    max-width:22ch;
+    max-width:26ch;
   }
 
-  /* --- the address --- */
-  .tail{
-    min-height:100svh;
-    display:flex;
-    flex-direction:column;
-    justify-content:flex-end;
-  }
-
-  .band{padding-top:0;}
+  /* --- sections --- */
+  .band{padding-top:var(--step);}
 
   .rule{
     height:1px;
     background:var(--hairline);
     border:0;
     width:100%;
-    margin:0 0 clamp(20px,3.5vh,36px) 0;
+    margin:0 0 clamp(24px,4vh,44px) 0;
   }
 
-  .say{
+  .caption{
+    font-size:13px;
+    color:var(--ink-soft);
+    margin:0 0 clamp(18px,3vh,30px) 0;
+    letter-spacing:0.01em;
+  }
+
+  .lede{
+    font-family:var(--serif);
+    font-size:clamp(1.5rem,3.2vw,2.4rem);
+    line-height:1.24;
+    letter-spacing:-0.015em;
+    margin:0 0 clamp(26px,4vh,46px) 0;
+    max-width:24ch;
+  }
+
+  .prose p{
+    margin:0 0 1.3em 0;
+    max-width:52ch;
+  }
+  .prose p:last-child{margin-bottom:0;}
+  .prose p + p{color:var(--ink-soft);}
+
+  /* --- practice list --- */
+  .practice{
+    list-style:none;
     margin:0;
-    font-size:clamp(1.4rem,3.4vw,2.3rem);
+    padding:0;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:0;
+    border-top:1px solid var(--hairline);
+  }
+  .practice li{
+    padding:16px 0;
+    border-bottom:1px solid var(--hairline);
+    padding-right:24px;
+  }
+  .practice strong{font-weight:400;}
+  .practice span{display:block; color:var(--ink-soft); font-size:14.5px; line-height:1.5;}
+
+  /* --- contact --- */
+  .say{
+    margin:0 0 clamp(26px,4vh,44px) 0;
+    font-size:clamp(1.3rem,3.2vw,2.1rem);
     letter-spacing:-0.028em;
     line-height:1.25;
   }
@@ -149,10 +182,21 @@
   .say a:hover{border-bottom-color:var(--lichen); color:var(--lichen);}
   .say a:focus-visible{outline:1px solid var(--lichen); outline-offset:6px; border-bottom-color:transparent;}
 
+  .details{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:clamp(20px,3vw,48px);
+    font-size:14.5px;
+    line-height:1.6;
+    color:var(--ink-soft);
+  }
+  .details p{margin:0;}
+  .details b{display:block; font-weight:400; color:var(--ink); margin-bottom:2px;}
+
   /* --- colophon --- */
   .colophon{
-    margin-top:clamp(36px,6vh,72px);
-    padding:22px 0 26px 0;
+    margin-top:var(--step);
+    padding:20px 0 26px 0;
     border-top:1px solid var(--hairline);
     display:flex;
     justify-content:space-between;
@@ -163,7 +207,7 @@
   }
   .colophon p{margin:0;}
 
-  /* --- one orchestrated arrival, on load only --- */
+  /* --- arrival --- */
   .rise{opacity:0; transform:translateY(14px); animation:rise 1.5s cubic-bezier(.2,.7,.2,1) forwards;}
   .d1{animation-delay:.15s;}
   .d2{animation-delay:.65s;}
@@ -171,8 +215,8 @@
   @keyframes rise{to{opacity:1; transform:none;}}
 
   @media (max-width:820px){
-    :root{--axis:0%;}
     .statement{font-size:clamp(1.9rem,8.4vw,3.4rem);}
+    .lede{max-width:none;}
   }
 
   @media (prefers-reduced-motion:reduce){
@@ -203,21 +247,46 @@
 
       <div class="hero-foot">
         <h1 class="statement rise d2">We make<br>unnecessary apps<br>you&rsquo;ll love.</h1>
-        <p class="whereabouts rise d3">A design studio in London.</p>
+        <p class="whereabouts rise d3">Joyella Studios is a design studio in London. We design and build apps for iOS and Android.</p>
       </div>
     </header>
 
-    <div class="tail">
-      <section class="band" aria-label="Contact">
-        <hr class="rule">
-        <p class="say"><a href="mailto:hello@joyellastudios.com">hello@joyellastudios.com</a></p>
-      </section>
+    <section class="band" id="studio" aria-label="Studio">
+      <hr class="rule">
+      <p class="caption">Studio</p>
+      <p class="lede">A small studio that designs and builds its own software, and occasionally somebody else&rsquo;s.</p>
+      <div class="prose">
+        <p>Joyella Studios Ltd is an independent design and software studio based in London, working across product design, interface design and native app development. We take a project from the first sketch through to the finished build and its release on the App Store and Google Play.</p>
+        <p>We are a small team and take on a few projects a year, which means we work slowly and stay close to the detail. Most of what we make is quiet: apps people open, use for a minute, and close without thinking about us.</p>
+      </div>
+    </section>
 
-      <footer class="colophon">
-        <p>Joyella Studios, London</p>
-        <p>&copy; 2026</p>
-      </footer>
-    </div>
+    <section class="band" id="practice" aria-label="What we do">
+      <hr class="rule">
+      <p class="caption">What we do</p>
+      <ul class="practice">
+        <li><strong>Product design</strong><span>Defining what an app is, what it leaves out, and how it earns its place on a phone.</span></li>
+        <li><strong>Interface design</strong><span>Screens, motion, typography and iconography, delivered as a working design system.</span></li>
+        <li><strong>App development</strong><span>Native iOS and Android builds, submission, and support after release.</span></li>
+        <li><strong>Brand and identity</strong><span>Naming, marks, art direction and the store listing an app arrives in.</span></li>
+      </ul>
+    </section>
+
+    <section class="band" id="contact" aria-label="Contact">
+      <hr class="rule">
+      <p class="caption">Contact</p>
+      <p class="say"><a href="mailto:hello@joyellastudios.com">hello@joyellastudios.com</a></p>
+      <div class="details">
+        <p><b>Joyella Studios Ltd</b>66 Paul Street<br>London EC2A 4NA<br>United Kingdom</p>
+        <p><b>Company</b>Registered in England &amp; Wales<br>Company no. 17415148</p>
+        <p><b>Enquiries</b><a href="mailto:hello@joyellastudios.com" style="color:inherit">hello@joyellastudios.com</a></p>
+      </div>
+    </section>
+
+    <footer class="colophon">
+      <p>Joyella Studios, London</p>
+      <p>&copy; 2026 Joyella Studios Ltd. All rights reserved.</p>
+    </footer>
 
   </div>
 </div>
